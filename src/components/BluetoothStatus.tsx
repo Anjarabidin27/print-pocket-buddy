@@ -71,20 +71,21 @@ export function BluetoothStatus({ onConnect, onDisconnect }: BluetoothStatusProp
 
   return (
     <Card className="w-full shadow-receipt">
-      <CardContent className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center space-x-3">
+      <CardContent className="p-4 sm:p-6">
+        <div className="flex items-center justify-between mb-3 sm:mb-4">
+          <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
             {getStatusIcon()}
-            <div>
-              <h3 className="font-semibold text-lg">Status Bluetooth</h3>
+            <div className="min-w-0">
+              <h3 className="font-semibold text-base sm:text-lg truncate">Status Bluetooth</h3>
               {deviceName && (
-                <p className="text-sm text-muted-foreground">{deviceName}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground truncate">{deviceName}</p>
               )}
             </div>
           </div>
           <Badge 
             variant={getStatusColor() === 'success' ? 'default' : 'secondary'}
             className={`
+              text-xs shrink-0
               ${getStatusColor() === 'success' ? 'bg-gradient-success text-success-foreground' : ''}
               ${getStatusColor() === 'warning' ? 'bg-warning text-warning-foreground' : ''}
             `}
@@ -93,12 +94,12 @@ export function BluetoothStatus({ onConnect, onDisconnect }: BluetoothStatusProp
           </Badge>
         </div>
 
-        <div className="flex space-x-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           {status === 'disconnected' || status === 'connecting' ? (
             <Button 
               onClick={handleConnect}
               disabled={status === 'connecting'}
-              className="bg-gradient-primary hover:opacity-90 transition-opacity"
+              className="bg-gradient-primary hover:opacity-90 transition-opacity text-sm sm:text-base w-full sm:w-auto"
             >
               <Bluetooth className="h-4 w-4 mr-2" />
               {status === 'connecting' ? 'Menghubungkan...' : 'Hubungkan Printer'}
@@ -107,6 +108,7 @@ export function BluetoothStatus({ onConnect, onDisconnect }: BluetoothStatusProp
             <Button 
               variant="outline"
               onClick={handleDisconnect}
+              className="text-sm sm:text-base w-full sm:w-auto"
             >
               Putuskan Koneksi
             </Button>
@@ -114,10 +116,10 @@ export function BluetoothStatus({ onConnect, onDisconnect }: BluetoothStatusProp
         </div>
 
         {status === 'connected' && (
-          <div className="mt-4 p-3 bg-success-muted rounded-lg">
+          <div className="mt-3 sm:mt-4 p-3 bg-success-muted rounded-lg">
             <div className="flex items-center text-success">
-              <Wifi className="h-4 w-4 mr-2" />
-              <span className="text-sm font-medium">Siap menerima data cetak</span>
+              <Wifi className="h-4 w-4 mr-2 shrink-0" />
+              <span className="text-xs sm:text-sm font-medium">Siap menerima data cetak</span>
             </div>
           </div>
         )}

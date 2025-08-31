@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    /* Core neutral palette - printer inspired */
-    --background: 250 250 250;
+    /* Core neutral palette - clean and mobile-friendly */
+    --background: 0 0% 98%;
     --foreground: 220 13% 18%;
 
     --card: 0 0% 100%;
@@ -16,50 +16,50 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 13% 18%;
 
-    /* Primary - printer blue/cyan theme */
-    --primary: 200 95% 45%;
+    /* Primary - subtle blue for better mobile contrast */
+    --primary: 220 91% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-muted: 200 95% 85%;
+    --primary-muted: 220 91% 95%;
 
-    /* Secondary - paper/receipt colors */
-    --secondary: 45 100% 96%;
+    /* Secondary - very light gray */
+    --secondary: 220 13% 95%;
     --secondary-foreground: 220 13% 18%;
 
-    /* Success - connected/printing states */
-    --success: 142 72% 29%;
+    /* Success - green for connected states */
+    --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
-    --success-muted: 142 72% 85%;
+    --success-muted: 142 76% 95%;
 
-    /* Warning - connection issues */
-    --warning: 45 93% 47%;
+    /* Warning - orange for connection issues */
+    --warning: 25 95% 53%;
     --warning-foreground: 0 0% 100%;
-    --warning-muted: 45 93% 85%;
+    --warning-muted: 25 95% 95%;
 
-    /* Muted - disabled/inactive states */
-    --muted: 220 13% 95%;
+    /* Muted - soft grays */
+    --muted: 220 13% 96%;
     --muted-foreground: 220 13% 46%;
 
-    --accent: 200 95% 95%;
+    --accent: 220 13% 96%;
     --accent-foreground: 220 13% 18%;
 
-    --destructive: 0 75% 60%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 200 95% 45%;
+    --ring: 220 91% 50%;
 
     --radius: 0.75rem;
 
-    /* Print-specific design tokens */
-    --receipt-shadow: 0 4px 12px -4px hsl(220 13% 18% / 0.15);
-    --printer-glow: 0 0 20px hsl(200 95% 45% / 0.3);
-    --connection-pulse: 0 0 30px hsl(142 72% 29% / 0.4);
+    /* Mobile-optimized shadows and effects */
+    --receipt-shadow: 0 2px 8px -2px hsl(220 13% 18% / 0.1);
+    --printer-glow: 0 0 15px hsl(220 91% 50% / 0.2);
+    --connection-pulse: 0 0 20px hsl(142 76% 36% / 0.3);
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(200 95% 45%), hsl(200 95% 55%));
-    --gradient-success: linear-gradient(135deg, hsl(142 72% 29%), hsl(142 72% 35%));
-    --gradient-receipt: linear-gradient(180deg, hsl(0 0% 100%), hsl(45 100% 98%));
+    /* Clean gradients for mobile */
+    --gradient-primary: linear-gradient(135deg, hsl(220 91% 50%), hsl(220 91% 55%));
+    --gradient-success: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 42%));
+    --gradient-receipt: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 13% 98%));
 
     --sidebar-background: 0 0% 98%;
 

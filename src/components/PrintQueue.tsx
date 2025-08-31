@@ -97,46 +97,47 @@ export function PrintQueue({ isConnected }: PrintQueueProps) {
 
   return (
     <Card className="w-full shadow-receipt">
-      <CardHeader>
-        <CardTitle className="flex items-center justify-between">
+      <CardHeader className="pb-3 sm:pb-6">
+        <CardTitle className="flex items-center justify-between text-base sm:text-lg">
           <span>Antrian Cetak</span>
           <Button 
             size="sm" 
             variant="outline"
             onClick={addTestJob}
+            className="text-xs sm:text-sm px-2 sm:px-3"
           >
-            + Test Struk
+            + Test
           </Button>
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        <ScrollArea className="h-64">
+      <CardContent className="pt-0">
+        <ScrollArea className="h-48 sm:h-64">
           {printJobs.length === 0 ? (
-            <div className="text-center py-8 text-muted-foreground">
-              <FileText className="h-12 w-12 mx-auto mb-3 opacity-50" />
-              <p>Tidak ada antrian cetak</p>
+            <div className="text-center py-6 sm:py-8 text-muted-foreground">
+              <FileText className="h-10 w-10 sm:h-12 sm:w-12 mx-auto mb-2 sm:mb-3 opacity-50" />
+              <p className="text-sm">Tidak ada antrian cetak</p>
             </div>
           ) : (
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               {printJobs.map((job) => (
                 <div 
                   key={job.id}
                   className="flex items-center justify-between p-3 bg-gradient-receipt rounded-lg border"
                 >
-                  <div className="flex items-center space-x-3">
-                    <FileText className="h-5 w-5 text-muted-foreground" />
-                    <div>
-                      <p className="font-medium">{job.title}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {job.timestamp.toLocaleTimeString('id-ID')} • {job.pages} halaman
+                  <div className="flex items-center space-x-2 sm:space-x-3 min-w-0 flex-1">
+                    <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground shrink-0" />
+                    <div className="min-w-0 flex-1">
+                      <p className="font-medium text-sm sm:text-base truncate">{job.title}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">
+                        {job.timestamp.toLocaleTimeString('id-ID')} • {job.pages} hal
                       </p>
                     </div>
                   </div>
                   
-                  <div className="flex items-center space-x-2">
-                    <Badge variant="secondary" className="flex items-center space-x-1">
+                  <div className="flex items-center space-x-2 shrink-0">
+                    <Badge variant="secondary" className="flex items-center space-x-1 text-xs">
                       {getStatusIcon(job.status)}
-                      <span className="text-xs">{getStatusText(job.status)}</span>
+                      <span className="hidden sm:inline">{getStatusText(job.status)}</span>
                     </Badge>
                     
                     {job.status === 'pending' && (
@@ -144,10 +145,10 @@ export function PrintQueue({ isConnected }: PrintQueueProps) {
                         size="sm"
                         onClick={() => printJob(job.id)}
                         disabled={!isConnected}
-                        className="bg-gradient-primary hover:opacity-90 transition-opacity"
+                        className="bg-gradient-primary hover:opacity-90 transition-opacity text-xs px-2 sm:px-3"
                       >
-                        <Printer className="h-3 w-3 mr-1" />
-                        Cetak
+                        <Printer className="h-3 w-3 sm:mr-1" />
+                        <span className="hidden sm:inline">Cetak</span>
                       </Button>
                     )}
                   </div>
