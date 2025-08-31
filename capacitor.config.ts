@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'app.lovable.9ef454098d1b47f39ed78f2e102fd52a',
+  appId: 'com.printpocketbuddy.app',
   appName: 'print-pocket-buddy',
   webDir: 'dist',
   server: {
